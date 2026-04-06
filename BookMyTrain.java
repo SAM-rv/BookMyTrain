@@ -38,16 +38,16 @@ public class BookMyTrain {
     }
 
     void register(){
-        System.out.print("\nEnter Username :- "); String username=sc.next();
-        System.out.print("\nEnter Password :- "); String password=sc.next();  sc.nextLine();
-        System.out.print("\nEnter FullName :- "); String fullName=sc.nextLine();
-        System.out.print("\nEnter Contact  :- "); String contact=sc.next();
+        System.out.print("Enter Username :- "); String username=sc.next();
+        System.out.print("Enter Password :- "); String password=sc.next();  sc.nextLine();
+        System.out.print("Enter FullName :- "); String fullName=sc.nextLine();
+        System.out.print("Enter Contact  :- "); String contact=sc.next();
         userservice.userRegistration(username,password,fullName,contact);
     }
 
     void login(){
-        System.out.print("\nEnter Username :- "); String username=sc.next();
-        System.out.print("\nEnter Password :- "); String password=sc.next();
+        System.out.print("Enter Username :- "); String username=sc.next();
+        System.out.print("Enter Password :- "); String password=sc.next();
         userservice.userLogin(username,password);
     }
 
@@ -80,9 +80,11 @@ public class BookMyTrain {
         String source=sc.next();
         System.out.print("Enter Destination :- ");
         String destination=sc.next();
-        List<Train> trainList=bookingservice.searchTrain(source,destination);
+        System.out.print("Enter Date :- ");
+        String date=sc.next();
+        List<Train> trainList=bookingservice.searchTrain(source,destination,date);
         if(trainList.isEmpty()){
-            System.out.println("Train Not Fount From "+source+" to "+destination);
+            System.out.println("Train Not Fount From "+source+" to "+destination+" On Date : "+date);
             return;
         }
         System.out.println("<-----Train Found----->");
@@ -113,9 +115,11 @@ public class BookMyTrain {
         String source=sc.next();
         System.out.print("Enter Destination :- ");
         String destination=sc.next();
-        List<Train> trainList=bookingservice.searchTrain(source,destination);
+        System.out.print("Enter Date :- ");
+        String date=sc.next();
+        List<Train> trainList=bookingservice.searchTrain(source,destination,date);
         if(trainList.isEmpty()){
-            System.out.println("Train Not Fount From "+source+" to "+destination);
+            System.out.println("Train Not Fount From "+source+" to "+destination+" On Date : "+date);
             return;
         }
         System.out.println("<-----Train Found----->");

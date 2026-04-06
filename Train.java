@@ -4,17 +4,19 @@ public class Train {
     private int trainId;
     private String trainName;
     private String source;
+    private String date;
     private String destination;
     private int totalSeats;
     private int availableSeats;
 
-    public Train(int trainId, String trainName, String source, String destination , int totalSeats) {
+    public Train(int trainId, String trainName, String source, String destination , int totalSeats , String date) {
         this.trainId = trainId;
         this.trainName = trainName;
         this.source = source;
         this.destination = destination;
         this.totalSeats=totalSeats;
         this.availableSeats=totalSeats;
+        this.date=date;
     }
 
     public int getTotalSeats() {
@@ -66,7 +68,7 @@ public class Train {
     }
 
     public boolean bookSeats(int seats){
-        if(seats<availableSeats) {
+        if(seats<=availableSeats) {
             availableSeats -= seats;
             return true;
         }
@@ -77,9 +79,17 @@ public class Train {
         availableSeats+=seats;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
-        return trainId +"\t\t"+ trainName+"\t\t"+ source +"\t\t"+destination +"\t\t"+ totalSeats + "\t\t" + availableSeats ;
+        return trainId +"\t\t"+ trainName+"\t\t"+ source +"\t\t"+destination +"\t\t"+ totalSeats + "\t\t" + availableSeats +  "\t\t" + date ;
     }
 
 }

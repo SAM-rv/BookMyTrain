@@ -1,10 +1,14 @@
 package BookMyTrain;
 
+
+import java.time.LocalDateTime;
+
 public class Ticket {
     private int ticketId;
     private int seats;
     private Train train;
     private Users user;
+    private final LocalDateTime time= LocalDateTime.now();
     private static int counter=10001;
 
     public Ticket(int seats, Train train, Users user) {
@@ -51,6 +55,7 @@ public class Ticket {
         return "Ticket ------------------------>\n"
                 +"Train Id :- "+ ticketId +
                 "\tNo Of Seats :- " + seats +
+                "\tTime & Date :- " + time +
                 "\n" + user +
                 "\nTrain---->\n" + train+"\n\n" ;
     }
